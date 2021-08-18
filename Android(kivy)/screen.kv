@@ -1,0 +1,158 @@
+#:kivy 1.8.0
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import Window kivy.core.window
+
+
+ScreenManagement:
+    transition: FadeTransition()
+    MainScreen:
+    AnotherScreen:
+
+<MainScreen>:
+    name: 'rt2acc'
+    rtinput: rtinput
+    lvinput: lvinput
+    accoutput: accoutput
+    calc_: calc_
+    GridLayout:
+        cols: 3
+        spacing: 15
+        padding: 10
+
+        Label:
+            text: '模式设置\n(当前:rt=>acc):'
+            font_name: 'FZHTJT.ttf'
+
+        Button:
+            on_release: app.root.current = 'rt2acc'
+            text: 'rt=>acc'
+
+        Button:
+            on_release: app.root.current = 'acc2rt'
+            text: 'acc=>rt'
+
+        Label:
+            text: 'rt(例: 11.51):'
+            font_name: 'FZHTJT.ttf'
+
+        TextInput:
+            id: rtinput
+            multiline: False
+
+        Label:
+
+        Label:
+            text: '难度(例: 15)(15+ == 16):'
+            font_name: 'FZHTJT.ttf'
+            
+        TextInput:
+            id: lvinput
+            multiline: False
+
+        Label:
+
+        Label:
+            font_name: 'FZHTJT.ttf'
+            text: '输出:'
+            
+        Label:
+            id: accoutput
+            font_name: 'FZHTJT.ttf'
+        
+        Label:
+
+        Label:
+
+        Label:
+
+        Label:
+
+        Label:
+            
+        Label:
+            
+        Button:
+            id: calc_
+            on_press: root.rt2acc()
+            text: 'Calculate!1'
+
+        Label:
+            text: 'by 千里扯淡'
+            font_name: 'FZHTJT.ttf'
+           
+
+<AnotherScreen>:
+    name: 'acc2rt'
+    accinput: accinput
+    lvinput: lvinput
+    rtoutput: rtoutput
+    calc_: calc_
+    GridLayout:
+        cols: 3
+        spacing: 15
+        padding: 10
+
+        Label:
+            text: '模式设置\n(当前:acc=>rt):'
+            font_name: 'FZHTJT.ttf'
+
+        Button:
+            on_release: app.root.current = 'rt2acc'
+            text: 'rt=>acc'
+
+        Button:
+            on_release: app.root.current = 'acc2rt'
+            text: 'acc=>rt'
+
+        Label:
+            text: 'acc(例: 99.29):'
+            font_name: 'FZHTJT.ttf'
+
+        TextInput:
+            id: accinput
+            multiline: False
+
+        Label:
+
+        Label:
+            text: '难度(例: 15)(15+ == 16):'
+            font_name: 'FZHTJT.ttf'
+            
+        TextInput:
+            id: lvinput
+            multiline: False
+
+        Label:
+
+        Label:
+            text: '输出:'
+            font_name: 'FZHTJT.ttf'
+            
+        Label:
+            id: rtoutput
+            font_name: 'FZHTJT.ttf'
+        
+        Label:
+
+        Label:
+
+        Label:
+
+        Label:
+
+        Label:
+            
+        Label:
+
+        Button:
+            id: calc_
+            on_press: root.acc2rt()
+            text: 'Calculate!1'
+
+        Label:
+            text: 'by 千里扯淡'
+            font_name: 'FZHTJT.ttf'
+
+
+
+    
