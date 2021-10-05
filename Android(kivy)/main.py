@@ -3,7 +3,6 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
 from kivy.core.text import LabelBase
-from kivy.core.window import Window
 
 from math import *
 import sympy
@@ -17,9 +16,9 @@ class MainScreen(Screen):
     def rt2acc(self):
         try:
             rt = float(self.rtinput.text)
-            lv = int(self.lvinput.text)
+            lv = float(self.lvinput.text)
         except ValueError:
-            self.accoutput.text = 'Err(ValueError):请不要瞎输一些奇怪的东西!'
+            self.accoutput.text = 'Err:请不要瞎输一些奇怪的东西!'
         else:
             x = sympy.symbols("x")
             a = sympy.solve([x - 280 * pow(rt, 2) / pow(lv,2)],[x])
@@ -48,7 +47,7 @@ class AnotherScreen(Screen):
     def acc2rt(self):
         try:
             acc = float(self.accinput.text)
-            lv = int(self.lvinput.text)
+            lv = float(self.lvinput.text)
         except ValueError:
             self.rtoutput.text = 'Err:请输入数字!111'
         else:
@@ -64,7 +63,7 @@ class AnotherScreen(Screen):
             elif acc >= 99.97 and acc <= 100:
                 rt = (2 * acc - 199) * lv
             else:
-                self.rtoutput.text = 'Err:输入值小于等于0或大于100.'
+                self.rtoutput.text = 'Err:你家acc有这样的?(半恼'
                 return
             self.rtoutput.text = str(rt)
 
@@ -76,8 +75,6 @@ presentation = Builder.load_file("screen.kv")
 class MainApp(App):
     def build(self):
         return presentation
-    
-print(Window.size)
 
 if __name__ == '__main__':
     MainApp().run()
